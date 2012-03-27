@@ -1,4 +1,6 @@
-;Exercise 3.3.  Modify the make-account procedure so that it creates password-protected accounts. That is, make-account should take a symbol as an additional argument
+; Exercise 3.3.  Modify the make-account procedure so that it creates password-protected accounts. 
+; That is, make-account should take a symbol as an additional argument
+
 (define (make-account balance password) 
   (define (withdraw amount)
     (if (<= amount balance)

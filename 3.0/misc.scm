@@ -1,3 +1,5 @@
+;; Some unclassified functions
+
 (define (make-account balance) 
   (define (withdraw amount)
     (if (<= amount balance)
