@@ -19,3 +19,12 @@
   dispatch)
 (define (make-monitored f)
   (make-m 0 f))
+
+
+;;; Usage
+
+(define monitored-square (make-monitored square))
+(monitored-square 2) ;; Outputs 4
+(monitored-square 3) ;; Outputs 9
+
+(monitored-square 'how-many-calls) ;; Outputs 2

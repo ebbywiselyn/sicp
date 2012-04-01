@@ -17,3 +17,8 @@
 	  ((and (eq? m 'deposit) (eq? entered-password password)) deposit)
 	  (else (lambda (x) 'wrong-pass))))
   dispatch)
+
+
+;; Usage
+(define acc (make-account 500 'pass))
+((acc 'withdraw 'pass) 100)
