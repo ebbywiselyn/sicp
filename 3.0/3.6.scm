@@ -20,4 +20,6 @@
                        ((eq? msg 'reset) (reset-rand)))))
 
 
-  
+;; Usage
+(random 'generate)
+((random 'reset) 10)

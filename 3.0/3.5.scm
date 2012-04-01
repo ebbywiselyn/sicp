@@ -48,8 +48,6 @@
   (< (+ (square (- x 5)) (square (- y 7))) (square 3)))
      
       
-
-
 ;;; Usage
 ;;; Use fractional notation for numbers.
 (estimate-integral predicate 2.0 4.0 8.0 10.0 5000)
