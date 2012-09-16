@@ -1,6 +1,6 @@
-;;Exercise 3.9. In section 1.2.1 we used the substitution model to analyze 
+;; Exercise 3.9. In section 1.2.1 we used the substitution model to analyze 
 ;; two procedures for computing
-;;factorials, a recursive version
+;; factorials, a recursive version
 
 (define (factorial n)
   (if (=  n 1)
@@ -39,7 +39,7 @@
 
 ;; (factorial 5) for linear recursive
 ;; Environments for Recursive factorial n
-;; When applying factorial, lookpu factorail in the global environment
+;; When applying factorial, lookup factorial in the global environment
 ;; Create environment E1, enclosed with global environment where n is bound to 5
 ;; check binding for fact-iter in E1, find none
 ;; checking in enclosed global environment, exists. 
@@ -61,9 +61,5 @@
 ;; E3 resume execution and returns 3*2 = 6
 ;; E4 resums execution and returns 4*6 = 24
 ;; E5 resumes exectuion and returns 5*24 = 120
-
-
-
-
 
 
