@@ -47,20 +47,24 @@ body: (define (withdraw amount)
 
 ;;acc1
 
-(define acc (make-account 50)) creates a acc object in the global environment which points to the newly created environment (say E1). 
+(define acc (make-account 50)) 
+
+;; creates a acc object in the global environment which points to the newly created environment (say E1). 
         
-E1 consists of the parameter balance of value 50, with procedure objects deposit and withdraw pointing to the parent procedure object. 
+;; E1 consists of the parameter balance of value 50, with procedure objects deposit and withdraw pointing to the parent procedure object. 
 
-Call to ((acc 'deposit) 40) creates a new environment E2, with amount parameter as 40, and sets the balance in E1 as 90
+;; Call to ((acc 'deposit) 40) creates a new environment E2, with amount parameter as 40, and sets the balance in E1 as 90
 
-Call to ((acc 'withdraw) 60) creates a new environment E3, with amount parameter as 60 and sets the balance in E3 as 30
+;; Call to ((acc 'withdraw) 60) creates a new environment E3, with amount parameter as 60 and sets the balance in E3 as 30
 
 ;; acc2
 
-(define acc2 (make-account 100)) creates a acc object in the global environment which points to the newly created environment (say E4). 
+(define acc2 (make-account 100)) 
+
+;; creates a acc object in the global environment which points to the newly created environment (say E4). 
       
-Local state for account is kept in E2, and E3, balance is shared between the environment E2, and E3 for the account 'acc'. 
+;; Local state for account is kept in E2, and E3, balance is shared between the environment E2, and E3 for the account 'acc'. 
 
-The local states for two accounts 'acc' and 'acc2' are kept different by environment E2, E3 created for 'acc' and environments E4, and others created by 'acc2'. 
+;; The local states for two accounts 'acc' and 'acc2' are kept different by environment E2, E3 created for 'acc' and environments E4, and others created by 'acc2'. 
 
-The procedure object is shared between 'acc' and 'acc2'
+;; The procedure object is shared between 'acc' and 'acc2'
