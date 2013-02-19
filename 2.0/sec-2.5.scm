@@ -1,4 +1,3 @@
-;;
 ;; existing 
 (define (type-tag datum)
   (if (pair? datum)
@@ -34,17 +33,19 @@
 
 
 ;; generic equality
-(define (eq-real-imag? x y) (and (= (real-part x) (real-part y))
-				 (= (imag-part x) (imag-part y))))
-								
-(define (eq-mag-pol? x y) (and (= (mag x) (mag y))
-			       (= (ang x) (ang y))))
+(define (eq-real-imag? x y) 
+  (and (= (real-part x) (real-part y))
+       (= (imag-part x) (imag-part y))))
 
-(define (eq-rational? x y) (and (= (denom x) (denom y))
-				(= (numer x) (numer y))))
+(define (eq-mag-pol? x y) 
+  (and (= (mag x) (mag y))
+       (= (ang x) (ang y))))
+
+(define (eq-rational? x y) 
+  (and (= (denom x) (denom y))
+       (= (numer x) (numer y))))
+
 ;;(define (= x y)) inbuilt
-
-;;;;;;;;;;;;;;;
 
 (define (equ z)
   (apply-generic 'equ z))
@@ -56,7 +57,6 @@
       (equ-polar z)))
 
 ;;;;;;;;;;;;;;
-
 (put 'equ '(complex) equ-complex)
 (put 'equ '(rational) eq-rational?)
 

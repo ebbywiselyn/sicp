@@ -278,13 +278,15 @@ z(define (product? expr)
 	(tree2 (tree->list-1 set-tree2))
 	)(union-set tree1 tree2)))
 
-(list->tree (union-set-from-tree (make-tree 5 
-				(make-tree 1 () ()) 
-				(make-tree 3 () ()))
-		     (make-tree 7
-				(make-tree 2 () ())
-				(make-tree 4 () ()))
-		     ))
+(list->tree 
+ (union-set-from-tree 
+  (make-tree 5 
+             (make-tree 1 () ()) 
+             (make-tree 3 () ()))
+  (make-tree 7
+             (make-tree 2 () ())
+             (make-tree 4 () ()))
+  ))
 
 ;; tree
 (define (make-tree entry left right) 
@@ -351,12 +353,7 @@ z(define (product? expr)
 
 
 
-;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;; huffman encoding and decoding
 
