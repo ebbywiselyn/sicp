@@ -1,26 +1,43 @@
-;;; TODO not completed
+(define (count-pairs p)
+  (if (unvisited-pair? p)
+      (let (
+            (tmp (+ (count-pairs (car p))
+                   (count-pairs (cdr p))
+                   1))
+            ;; more init
+            )
+        (begin 
+          ((ds 'append) p)
+          tmp))
+      0))
 
-;;; Exercise 3.17.  Devise a correct version of the count-pairs procedure of exercise 3.16 that returns the number of distinct pairs 
-;;; in any structure. (Hint: Traverse the structure, maintaining an auxiliary data structure that is used to keep track of which pairs
-;;;  have already been counted.)
-
+(define (unvisited-pair? p)
+  (if (and (pair? p) 
+           (not ((ds 'in-list) p)))
+           #t
+           #f))
+           
 (define (append! plist value)
-  (set-cdr! (last-pair plist) value)
-  plist)
+  (cond ((null? value) plist)
+        ((not (pair? value)) plist)
+        ((eq? (last-pair plist) null?) plist)
+        (else (begin 
+                (set-cdr! (last-pair plist) value)
+                plist))))
 
 (define (last-pair x)
-  (if (null? (cdr x))
-      x
-      (last-pair (cdr x))))
-
+  (cond ((null? x) x)
+        ((null? (cdr x)) x)
+        (else (last-pair (cdr x)))))
+        
 (define (in-list? l e)
   (cond ((null? l) #f)
-        ((eq? (cdr l) e) #t)
+        ((eq? (car l) e) #t)
         (else (in-list? (cdr l) e))))
 
 (define (make-pair-list plist)
   (define (append value)
-    (append! plist value))
+    (append! plist (list value)))
   (define (in-list value)
     (in-list? plist value))
   (define (dir-plist) plist)
@@ -28,8 +45,25 @@
     (cond ((eq? m 'append) append)
           ((eq? m 'in-list) in-list)
           ((eq? m 'state) dir-plist)
-          (else (error "unknown request -- make-list-pair"
-                       m))))
+          (else (error "unknown request -- make-list-pair" m))))
   dispatch)
 
-(define pair-list (make-pair-list (list 'head)))
+(define ds (make-pair-list (list (list 'head))))    
+(define x (cons 'a ()))
+(define z (cons x (cons x ()))) 
+
+;; (count-pairs z) outputs 3
+
+(define x (cons 'a ()))
+(define y (cons x x))
+(define z (cons y y))
+
+;; (count-pairs z) outputs 3
+
+
+
+
+
+
+
+  
