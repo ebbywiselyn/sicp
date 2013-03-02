@@ -2,7 +2,7 @@
   (if (unvisited-pair? p)
       (let (
             (tmp (+ (count-pairs (car p))
-                   (count-pairs (cdr p))
+                    (count-pairs (cdr p))
                    1))
             ;; more init
             )
