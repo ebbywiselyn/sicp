@@ -37,7 +37,7 @@
            deque))))
 (define (front-delete-deque! deque)
   (cond ((empty-deque? deque)
-         (error "empty queue" '()))
+         (error "empty queue" '()))n
         (else
          (set-front-ptr! deque (cdr (front-ptr deque))))))
 (define (rear-delete-deque! deque)
@@ -47,9 +47,7 @@
          (let ((prev-pair (get-ptr (car (rear-ptr deque)))))
            (set-rear-ptr! deque prev-pair)))))
 
-
-
-;;;; accessor method;;;
+;;;; item accessor method ;;;
 (define (get-value item)
   ((item 'get-item)))
 (define (get-ptr item)
@@ -63,10 +61,10 @@
     ((it 'set-item!) val)
     it))
     
-  
-
-;;; abstraction of the data stored
-;;; in the list, the data has a value, and a rear pointer.
+;;; Item represents a cell entry
+;;; in the linked list, the rear ptr of the cell/item
+;;; represents the previous entry, it acts similar
+;;; to a doubly linked list
 (define (item)
   (define null '())
   (define value '())
